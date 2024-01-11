@@ -48,7 +48,7 @@ describe('End to End Test',{retries:{openMode:1}}, () => {
     cy.get('.oxd-button--secondary').click()
     cy.wait(10000)
     cy.get('.orangehrm-edit-employee-name').should('have.text', fullName );
-
+  });
   it('Search feature working', ()=>{
     cy.get('.oxd-input').type('DashBoard');
     cy.get('.oxd-main-menu-item').click();
@@ -58,10 +58,10 @@ describe('End to End Test',{retries:{openMode:1}}, () => {
     cy.get('.oxd-buzz-post-input').type('i am tired');
     cy.get('.oxd-buzz-post-slot > .oxd-button').click();
   })
- });
   after(()=>{
     // Logout feature working 
+    cy.wait(6000)
     cy.get('.oxd-userdropdown-tab').click();
     cy.get(':nth-child(4) > .oxd-userdropdown-link').click();
   })
-})
+});

@@ -33,7 +33,7 @@ describe('End to End Test',{retries:{openMode:1}}, () => {
     cy.get(':nth-child(2) > .oxd-input').type(comment);
     cy.wait(10000);
   })
-  it.only('created a new employee',()=>{
+  it('created a new employee',()=>{
     cy.get(':nth-child(2) > .oxd-main-menu-item').click()
     cy.get('.orangehrm-header-container > .oxd-button').click()
     cy.get('.--name-grouped-field > :nth-child(1) > :nth-child(2) > .oxd-input').type(createFirstName[y]);
@@ -48,17 +48,20 @@ describe('End to End Test',{retries:{openMode:1}}, () => {
     cy.get('.oxd-button--secondary').click()
     cy.wait(10000)
     cy.get('.orangehrm-edit-employee-name').should('have.text', fullName );
-
-    cy.wait(1000000);
-  it('Leave Date', ()=>{
-      
+  });
+  it('Search feature working', ()=>{
+    cy.get('.oxd-input').type('DashBoard');
+    cy.get('.oxd-main-menu-item').click();
+  });
+  it('Test buzz feature can post a comment',()=>{
+    cy.get(':nth-child(12) > .oxd-main-menu-item').click();
+    cy.get('.oxd-buzz-post-input').type('i am tired');
+    cy.get('.oxd-buzz-post-slot > .oxd-button').click();
   })
-
-
- })
   after(()=>{
     // Logout feature working 
+    cy.wait(6000)
     cy.get('.oxd-userdropdown-tab').click();
     cy.get(':nth-child(4) > .oxd-userdropdown-link').click();
   })
-})
+});

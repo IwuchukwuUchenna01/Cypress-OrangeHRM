@@ -1,0 +1,19 @@
+{
+  "name": "automation",
+  "version": "1.0.0",
+  "description": "cypress automation",
+  "main": "index.js",
+  "scripts": {
+    "ci-test": "npx cypress run",
+    "cypress-local": "npx cypress run -b chrome --headless",
+    "cypress-cloud": "npx cypress run --record --key 1e5ec956-400d-4032-be94-e829d99be88f"
+  },
+  "author": "uchenna",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.6.2"
+  },
+  "dependencies": {
+    "cypress-file-upload": "^5.0.8"
+  }
+}

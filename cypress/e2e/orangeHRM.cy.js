@@ -1,7 +1,25 @@
 //// <reference types="cypress" />
 import { loginDetails, comment, url,createFirstName,createMiddleName,createLastName,y,x,passwordGen, userName, fullName } from "./param.cy";
+describe('landing page test', ()=>{
+  beforeEach('start up page',()=>{
+    cy.visit(url)
+  })
+  it('forgot password',()=>{
+    cy.get('.orangehrm-login-forgot > .oxd-text').click();
+    cy.get('.oxd-input').type(loginDetails[0]);
+    cy.get('.oxd-button--secondary').click();
+    cy.get('.oxd-text--h6').click();
+  })
+  it('login',()=>{
+    cy.wait(6000);
+    cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input').type(loginDetails[0]);
+    cy.get(':nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input').type(loginDetails[1]);
+    cy.get('.oxd-button').click();
+  })
+})
+
 describe('End to End Test',{retries:{openMode:1}}, () => {
-  
+
   beforeEach(()=>{
     //Login
     cy.visit(url)
@@ -10,6 +28,7 @@ describe('End to End Test',{retries:{openMode:1}}, () => {
     cy.get(':nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input').type(loginDetails[1]);
     cy.get('.oxd-button').click();
   })
+  
   it('SideBar Functionality test', ()=>{
     //search feature working 
     cy.get('.oxd-input').type('DashBoard');
@@ -36,6 +55,7 @@ describe('End to End Test',{retries:{openMode:1}}, () => {
   it('created a new employee',()=>{
     cy.get(':nth-child(2) > .oxd-main-menu-item').click()
     cy.get('.orangehrm-header-container > .oxd-button').click()
+    cy.wait(10000);
     cy.get('.--name-grouped-field > :nth-child(1) > :nth-child(2) > .oxd-input').type(createFirstName[y]);
     cy.get(':nth-child(2) > :nth-child(2) > .oxd-input').type(createMiddleName[y]);
     cy.get(':nth-child(3) > :nth-child(2) > .oxd-input').type(createLastName[y]);
@@ -58,6 +78,7 @@ describe('End to End Test',{retries:{openMode:1}}, () => {
     cy.get('.oxd-buzz-post-input').type('i am tired');
     cy.get('.oxd-buzz-post-slot > .oxd-button').click();
   })
+  
   after(()=>{
     // Logout feature working 
     cy.wait(6000)
@@ -65,3 +86,5 @@ describe('End to End Test',{retries:{openMode:1}}, () => {
     cy.get(':nth-child(4) > .oxd-userdropdown-link').click();
   })
 });
+
+

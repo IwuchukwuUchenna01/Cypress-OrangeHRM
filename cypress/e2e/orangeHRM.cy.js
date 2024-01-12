@@ -52,14 +52,14 @@ describe('End to End Test',{retries:{openMode:1}}, () => {
     cy.get(':nth-child(2) > .oxd-input').type(comment);
     cy.wait(10000);
   })
-  it('created a new employee',()=>{
+  it('Create a new employee',()=>{
     cy.get(':nth-child(2) > .oxd-main-menu-item').click()
     cy.get('.orangehrm-header-container > .oxd-button').click()
     cy.wait(10000);
     cy.get('.--name-grouped-field > :nth-child(1) > :nth-child(2) > .oxd-input').type(createFirstName[y]);
     cy.get(':nth-child(2) > :nth-child(2) > .oxd-input').type(createMiddleName[y]);
     cy.get(':nth-child(3) > :nth-child(2) > .oxd-input').type(createLastName[y]);
-    //cy.get('.oxd-file-div > .oxd-icon-button').selectFile({fileName:'download.jpg'}); //attachFile('C:\Users\Support\Desktop\Cypress-OrangeHRM\cypress\e2e\download.jpg', { subjectType: 'input' }) 
+    //cy.get('.oxd-file-div > .oxd-icon-button').attachFile('C:\Users\Support\Desktop\Cypress-OrangeHRM\cypress\fixtures\download.jpg'); //attachFile('C:\Users\Support\Desktop\Cypress-OrangeHRM\cypress\e2e\download.jpg', { subjectType: 'input' }) 
     cy.get('.oxd-switch-input').click();
     cy.get(':nth-child(4) > .oxd-grid-2 > :nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-input').type(`${userName[y]+x}`);
     cy.get(':nth-child(1) > :nth-child(2) > .oxd-radio-wrapper > label').click();
@@ -69,7 +69,7 @@ describe('End to End Test',{retries:{openMode:1}}, () => {
     cy.wait(10000)
     cy.get('.orangehrm-edit-employee-name').should('have.text', fullName );
   });
-  it('Search feature working', ()=>{
+  it('Search Feature', ()=>{
     cy.get('.oxd-input').type('DashBoard');
     cy.get('.oxd-main-menu-item').click();
   });

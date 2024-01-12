@@ -5,7 +5,7 @@ const createFirstName = ['james','okoro', 'samson','samuel'];
 const createLastName = ['femi', 'adegoke', 'taiwo','olusola'];
 const createMiddleName = ['otedola','sola','adepoju', 'ifagbemi'];
 const userName = ['ogunmepon', 'folashadds','ifetoms','baps','creto']
-let y = Math.floor((Math.random()*createFirstName.length-2))
+let y = Math.floor((Math.random()*(createFirstName.length-1)));
 let x = Math.floor((Math.random() * 100) + 1);
 const fullName = `${createFirstName[y] + " " + createLastName[y]}`;
 

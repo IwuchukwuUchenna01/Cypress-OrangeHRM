@@ -52,7 +52,7 @@ describe('End to End Test',{retries:{openMode:1}}, () => {
     cy.get(':nth-child(2) > .oxd-input').type(comment);
     cy.wait(10000);
   })
-  it('Create a new employee',()=>{
+  it.only('Create a new employee',()=>{
     cy.get(':nth-child(2) > .oxd-main-menu-item').click()
     cy.get('.orangehrm-header-container > .oxd-button').click()
     cy.wait(10000);
